@@ -60,18 +60,70 @@ namespace WealthManagement
 
         static Expense GetExpenseFromUser()
         {
+            Console.WriteLine("Choose an expense type:");
+            Console.WriteLine("1. Housing Expense");
+            Console.WriteLine("2. Entertainment Expense");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    return GetHousingExpenseFromUser();
+                case "2":
+                    return GetEntertainmentExpenseFromUser();
+                default:
+                    Console.WriteLine("Invalid choice. Using generic Expense.");
+                    return GetGenericExpenseFromUser();
+            }
+        }
+
+        static HousingExpense GetHousingExpenseFromUser()
+        {
             Console.Write("Enter the expense description: ");
             string description = Console.ReadLine();
 
             double amount;
             while (true)
             {
-                Console.Write("Enter the expense amount: ");
+                Console.Write("Enter the housing expense amount: ");
+                if (double.TryParse(Console.ReadLine(), out amount) && amount >= 0)
+                    return new HousingExpense(description, amount);
+                else
+                    Console.WriteLine("Invalid input. Please enter a valid positive number.");
+            }
+        }
+
+        static EntertainmentExpense GetEntertainmentExpenseFromUser()
+        {
+            Console.Write("Enter the expense description: ");
+            string description = Console.ReadLine();
+
+            double amount;
+            while (true)
+            {
+                Console.Write("Enter the entertainment expense amount: ");
+                if (double.TryParse(Console.ReadLine(), out amount) && amount >= 0)
+                    return new EntertainmentExpense(description, amount);
+                else
+                    Console.WriteLine("Invalid input. Please enter a valid positive number.");
+            }
+        }
+        static Expense GetGenericExpenseFromUser()
+        {
+            Console.Write("Enter the expense description: ");
+            string description = Console.ReadLine();
+
+            double amount;
+            while (true)
+            {
+                Console.Write("Enter the generic expense amount: ");
                 if (double.TryParse(Console.ReadLine(), out amount) && amount >= 0)
                     return new Expense(description, amount);
                 else
                     Console.WriteLine("Invalid input. Please enter a valid positive number.");
             }
         }
+
+
     }
 }

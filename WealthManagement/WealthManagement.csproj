@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BudgetManager.cs" />
+    <Compile Include="EntertainmentExpense .cs" />
     <Compile Include="Expense.cs" />
+    <Compile Include="HousingExpense .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

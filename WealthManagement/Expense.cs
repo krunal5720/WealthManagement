@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WealthManagement
 {
-    /// <summary>
-    /// Represents an expense with properties for description and amount.
-    /// </summary>
+    /*
+     * Encapsulated the data fields Description and Amount using auto-implemented properties. 
+     * These properties provide access to the class's internal data, allowing controlled access to the Expense object's attributes from outside the class.
+     */
     public class Expense
     {
         public string Description { get;set; }

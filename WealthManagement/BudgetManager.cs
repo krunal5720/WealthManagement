@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace WealthManagement
 {
-    public  class BudgetManager
+
+   
+    public class BudgetManager
     {
+        /* 
+         Encapsulated the data fields budget and expenses.
+         These fields are private, meaning they can only be accessed from within the BudgetManager class.
+         */
+
         private double budget;
         private List<Expense> expenses;
 
@@ -17,6 +24,10 @@ namespace WealthManagement
             expenses = new List<Expense>();
         }
 
+        /*
+         * Encapsulated the methods AddExpense and GetRemainingBudget. 
+         These methods provide controlled access to the internal state of the BudgetManager object, allowing clients to add expenses and retrieve the remaining budget
+         */
         public void AddExpense(Expense expense)
         {
             expenses.Add(expense);
